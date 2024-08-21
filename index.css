@@ -1,0 +1,134 @@
+body
+{
+    height: 100vh;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-wrap: wrap;
+    padding: 50px;
+    gap: 10px;
+}
+
+.basic_a
+{
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 45px;
+    padding: 40px 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* YELLOW ROTATION BACKGROUND */
+
+.yellow_rotation_background
+{
+    color: #272727;
+    border: 5px solid #272727;
+}
+
+.yellow_rotation_background::before     /*Esto es un pseudo elemento*/
+{
+    content: '';    /*Crea un elemento vacio*/
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #fff200;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    transform-origin: bottom left;  /*Mueve el pivote a la esquina inferior izquierda*/
+    transform: rotate(-90deg);
+    transition: transform 1s;   /*Define que la animación va a ser de tipo transform y durará 1 segundo*/
+}
+
+.yellow_rotation_background:hover::before
+{
+    transform: rotate(0deg);
+}
+
+/* BLACK HORIZONTAL BACKGROUND */
+
+.black_horizontal_background
+{
+    color: #272727;
+    border: 5px solid #272727;
+    transition: color 1s;
+}
+
+.black_horizontal_background::before
+{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #272727;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    transform-origin: top left;
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+.black_horizontal_background:hover::before
+{
+    transform: translateX(0);
+}
+
+.black_horizontal_background:hover
+{
+    color: white;
+}
+
+/* BLACK CORNER BACKGROUND*/
+
+.black_corners_background
+{
+    color: #272727;
+    border: 5px solid #272727;
+    transition: color 1s;
+}
+
+.black_corners_background::before
+{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #262626;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    transition: 1s;
+    transform: rotateX(90deg);
+}
+
+.black_corners_background::after
+{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #262626;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    transition: 1s;
+    transform: rotateY(90deg);
+}
+
+.black_corners_background:hover::before
+{
+    transform: rotateX(0deg);
+}
+
+.black_corners_background:hover::after
+{
+    transform: rotateX(0deg);
+}
+
+.black_corners_background:hover
+{
+    color: white;
+}
